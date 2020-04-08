@@ -17,5 +17,11 @@ class GameViewController: UIViewController {
     }
     
     
-
+    @IBAction func colorBlockPressed(_ sender: UIButton) {
+        
+        let random = arc4random_uniform(256)
+        print(random)
+        
+    }
+    
 }
