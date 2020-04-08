@@ -34,6 +34,8 @@ class GameViewController: UIViewController {
         let rgbArr: [Int] = randomRGBGenerator()
         sender.backgroundColor = UIColor(red: CGFloat(rgbArr[0])/255.0, green: CGFloat(rgbArr[1])/255.0, blue: CGFloat(rgbArr[2])/255.0, alpha: 1.0)
         
+        
+        
     }
     
     @IBAction func reloadButtonPressed(_ sender: UIButton) {
@@ -59,6 +61,11 @@ class GameViewController: UIViewController {
         let rgbArr: [Int] = randomRGBGenerator()
         requiredColor.text = "RGB(\(rgbArr[0]), \(rgbArr[1]), \(rgbArr[2]))"
         
+        //select a random button and set it's color to the target value
+        //buttons[random] becomes the answer block
+        let random = arc4random_uniform(6)
+        //print(random)
+        buttons[Int(random)].backgroundColor = UIColor(red: CGFloat(rgbArr[0])/255.0, green: CGFloat(rgbArr[1])/255.0, blue: CGFloat(rgbArr[2])/255.0, alpha: 1.0)
     }
     
     //Changes the box colors
