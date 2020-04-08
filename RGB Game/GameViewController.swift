@@ -19,8 +19,10 @@ class GameViewController: UIViewController {
     
     @IBAction func colorBlockPressed(_ sender: UIButton) {
         
-        let random = arc4random_uniform(256)
-        print(random)
+        let r = arc4random_uniform(256)
+        let g = arc4random_uniform(256)
+        let b = arc4random_uniform(256)
+        sender.backgroundColor = UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
         
     }
     
