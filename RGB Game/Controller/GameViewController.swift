@@ -17,14 +17,19 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btn5: UIButton!
     @IBOutlet weak var btn6: UIButton!
     @IBOutlet weak var requiredColor: UILabel!
+    @IBOutlet weak var reloadButton: UIButton!
     
     var buttons = [UIButton]()
     var answer = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttons = [btn1, btn2, btn3, btn4, btn5, btn6]
         
+        buttons = [btn1, btn2, btn3, btn4, btn5, btn6]
+        for i in buttons {
+            i.layer.cornerRadius = 15
+        }
+        reloadButton.layer.cornerRadius = 15
         restartGame()
         
     }

@@ -10,13 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var startButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        startButton.layer.cornerRadius = 10
+        
     }
 
     @IBAction func startButtonPressed(_ sender: UIButton) {
         
+        startButton.alpha = 0.5
         performSegue(withIdentifier: "goToGame", sender: self)
         
     }

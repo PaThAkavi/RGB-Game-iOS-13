@@ -60,14 +60,30 @@
 			children = (
 				0453E57F243E2B6600E457D4 /* AppDelegate.swift */,
 				0453E581243E2B6600E457D4 /* SceneDelegate.swift */,
-				0453E593243E313300E457D4 /* GameViewController.swift */,
-				0453E583243E2B6600E457D4 /* ViewController.swift */,
-				0453E585243E2B6600E457D4 /* Main.storyboard */,
+				0453E596243EF07900E457D4 /* Controller */,
+				0453E595243EF04E00E457D4 /* View */,
 				0453E588243E2B6800E457D4 /* Assets.xcassets */,
 				0453E58A243E2B6800E457D4 /* LaunchScreen.storyboard */,
 				0453E58D243E2B6800E457D4 /* Info.plist */,
 			);
 			path = "RGB Game";
+			sourceTree = "<group>";
+		};
+		0453E595243EF04E00E457D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0453E585243E2B6600E457D4 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0453E596243EF07900E457D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0453E593243E313300E457D4 /* GameViewController.swift */,
+				0453E583243E2B6600E457D4 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
