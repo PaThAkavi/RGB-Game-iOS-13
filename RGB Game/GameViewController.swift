@@ -19,28 +19,33 @@ class GameViewController: UIViewController {
     @IBOutlet weak var requiredColor: UILabel!
     
     var buttons = [UIButton]()
-    
+    var answer = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buttons = [btn1, btn2, btn3, btn4, btn5, btn6]
-        generateNewColors()
-        reloadBoxColour()
+        
+        restartGame()
         
     }
     
     @IBAction func colorBlockPressed(_ sender: UIButton) {
         
-        let rgbArr: [Int] = randomRGBGenerator()
-        sender.backgroundColor = UIColor(red: CGFloat(rgbArr[0])/255.0, green: CGFloat(rgbArr[1])/255.0, blue: CGFloat(rgbArr[2])/255.0, alpha: 1.0)
-        
-        
+        if sender.backgroundColor == UIColor(red: CGFloat(answer[0])/255.0, green: CGFloat(answer[1])/255.0, blue: CGFloat(answer[2])/255.0, alpha: 1.0){
+            
+            result(string: "You Win!")
+            //restartGame()
+            
+        } else {
+            result(string: "You Lose..")
+            //restartGame()
+        }
         
     }
     
     @IBAction func reloadButtonPressed(_ sender: UIButton) {
-        generateNewColors()
-        reloadBoxColour()
+        
+        restartGame()
     }
     
     //r, g, b value generator
@@ -60,7 +65,7 @@ class GameViewController: UIViewController {
         
         let rgbArr: [Int] = randomRGBGenerator()
         requiredColor.text = "RGB(\(rgbArr[0]), \(rgbArr[1]), \(rgbArr[2]))"
-        
+        answer = rgbArr
         //select a random button and set it's color to the target value
         //buttons[random] becomes the answer block
         let random = arc4random_uniform(6)
@@ -74,6 +79,21 @@ class GameViewController: UIViewController {
             let rgbArr: [Int] = randomRGBGenerator()
             buttons[i].backgroundColor = UIColor(red: CGFloat(rgbArr[0])/255.0, green: CGFloat(rgbArr[1])/255.0, blue: CGFloat(rgbArr[2])/255.0, alpha: 1.0)
         }
+    }
+    
+    func restartGame() {
+        reloadBoxColour()  //changes the colour of all the boxes as well as the target rgb value
+        generateNewColors()  //changes the colour of a randomly picked box to the target rgb value
+    }
+    
+    func result(string: String) {
+        let alert = UIAlertController(title: string, message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) {(action) in
+            //restarts the game every time the user presses "OK"
+            self.restartGame()
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
 }
