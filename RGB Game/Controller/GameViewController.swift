@@ -36,6 +36,20 @@ class GameViewController: UIViewController {
     
     @IBAction func colorBlockPressed(_ sender: UIButton) {
         
+        //=================fade-in/fade-out==================
+        sender.alpha = 0.0
+
+        // fade in
+        UIView.animate(withDuration: 0.20, animations: {
+            sender.alpha = 1.0
+        }) { (finished) in
+            // fade out
+            UIView.animate(withDuration: 0.20, animations: {
+                sender.alpha = 1.0
+            })
+        }
+        //===================================================
+        
         if sender.backgroundColor == UIColor(red: CGFloat(answer[0])/255.0, green: CGFloat(answer[1])/255.0, blue: CGFloat(answer[2])/255.0, alpha: 1.0){
             
             result(string: "You Win!")
